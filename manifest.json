@@ -1,11 +1,21 @@
 {
-    "name": "Covid-19 Stats UK",
-    "version": "1.0.0",
-    "description": "latest covid data of UK",
+    "name": "Test",
+    "description" : "Test",
+    "version": "1.0",
     "manifest_version": 3,
-    "author": "Sampurna Chapagain",
-    "action":{
-        "default_popup": "index.html",
-        "default_title": "Latest Covid Report"
-    }
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://mail.google.com/"
+    ],
+    "permissions": [
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["inject.js"]
+        }
+    ]
 }
